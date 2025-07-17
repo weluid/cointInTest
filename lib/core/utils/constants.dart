@@ -3,4 +3,5 @@ class Constants {
 
   //keys
   static String accessToken = 'accessToken';
+  static String themeValue = 'themeValue';
 }

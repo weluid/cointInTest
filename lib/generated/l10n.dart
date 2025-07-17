@@ -134,6 +134,41 @@ class S {
       args: [],
     );
   }
+
+  /// `Appearance`
+  String get appearance {
+    return Intl.message('Appearance', name: 'appearance', desc: '', args: []);
+  }
+
+  /// `Same as device`
+  String get sameDevice {
+    return Intl.message(
+      'Same as device',
+      name: 'sameDevice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `uses light or dark mode depending on your device settings`
+  String get sameDeviceDescr {
+    return Intl.message(
+      'uses light or dark mode depending on your device settings',
+      name: 'sameDeviceDescr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get light {
+    return Intl.message('Light', name: 'light', desc: '', args: []);
+  }
+
+  /// `Dark`
+  String get dark {
+    return Intl.message('Dark', name: 'dark', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

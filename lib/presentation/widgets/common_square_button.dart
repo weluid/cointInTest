@@ -1,11 +1,15 @@
 import 'package:coinin/core/extentions/context_extentions.dart';
-import 'package:coinin/generated/assets.gen.dart';
 import 'package:flutter/material.dart';
 
-class SettingsButton extends StatelessWidget {
-  const SettingsButton({super.key, required this.onTap});
+class CommonSquareButton extends StatelessWidget {
+  const CommonSquareButton({
+    super.key,
+    required this.onTap,
+    required this.icon,
+  });
 
   final VoidCallback onTap;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class SettingsButton extends StatelessWidget {
       onPressed: () {
         onTap.call();
       },
-      icon: Assets.icons.homePage.settings.svg(),
+      icon: icon,
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(
           colors.primary.withValues(alpha: 0.1),

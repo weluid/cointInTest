@@ -15,4 +15,10 @@ class LocalStorage {
   void setToken(String token) => _prefs.setString(Constants.accessToken, token);
 
   void removeToken() => _prefs.remove(Constants.accessToken);
+
+  String get getTheme => _prefs.getString(Constants.themeValue) ?? '';
+
+  Future<bool> setTheme(String themeMode) async {
+    return _prefs.setString(Constants.themeValue, themeMode);
+  }
 }

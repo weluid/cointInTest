@@ -80,6 +80,11 @@ class ThemeLight {
         color: _colors.text,
       ),
 
+      titleMedium: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: _colors.text,
+      ),
       titleSmall: TextStyle(
         fontSize: 12,
         fontWeight: FontWeight.w400,

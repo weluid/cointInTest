@@ -4,6 +4,7 @@ import 'package:coinin/presentation/main_nav_page/children/home_page/home_page.d
 import 'package:coinin/presentation/main_nav_page/children/history_page/history_page.dart';
 import 'package:coinin/presentation/main_nav_page/children/search_page/search_page.dart';
 import 'package:coinin/presentation/main_nav_page/main_nav_page.dart';
+import 'package:coinin/presentation/settings_page/settings_page.dart';
 import 'package:coinin/presentation/splash_page/splash_page.dart';
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
@@ -26,7 +27,9 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SearchRoute.page),
         AutoRoute(page: HistoryRoute.page),
         AutoRoute(page: CollectionRoute.page),
+
       ],
     ),
+    AutoRoute(page: SettingsRoute.page),
   ];
 }

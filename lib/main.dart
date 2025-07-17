@@ -4,6 +4,7 @@ import 'package:coinin/di/storage_injector.dart';
 import 'package:coinin/generated/l10n.dart';
 import 'package:coinin/presentation/main_nav_page/children/home_page/bloc/home_page_cubit.dart';
 import 'package:coinin/presentation/router/app_router.dart';
+import 'package:coinin/services/theme_service/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,19 +36,26 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => HomePageCubit()),
+        BlocProvider(create: (_) => ThemeCubit()),
       ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        localizationsDelegates: const [
-          S.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        themeMode: ThemeMode.dark,
-        theme: ThemeLight.light,
-        darkTheme: ThemeDark.dark,
-        routerConfig: _appRouter.config(),
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            themeMode: state is ThemeChanged
+                ? state.themeMode
+                : ThemeMode.system,
+            theme: ThemeLight.light,
+            darkTheme: ThemeDark.dark,
+            routerConfig: _appRouter.config(),
+          );
+        },
       ),
     );
   }

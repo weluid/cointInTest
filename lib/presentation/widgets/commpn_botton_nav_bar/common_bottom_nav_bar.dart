@@ -81,7 +81,6 @@ class CommonBottomNavBar extends StatelessWidget {
             }
 
             final realIndex = index > 1 ? index - 1 : index; // Index offset
-            print("realIndex $realIndex");
             final elem = items[realIndex];
             final bool isSelected = tabsRouter.activeIndex == realIndex;
             final color = isSelected

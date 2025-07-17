@@ -28,14 +28,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "accessGallery": MessageLookupByLibrary.simpleMessage(
       "Please allow access to the gallery.",
     ),
+    "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "coinIn": MessageLookupByLibrary.simpleMessage("CoinIn"),
+    "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "freePremium": MessageLookupByLibrary.simpleMessage(
       "Free Premium Available",
     ),
     "identifyCoin": MessageLookupByLibrary.simpleMessage("Identify Coin"),
+    "light": MessageLookupByLibrary.simpleMessage("Light"),
     "permissionDenied": MessageLookupByLibrary.simpleMessage(
       "Permission was denied.",
+    ),
+    "sameDevice": MessageLookupByLibrary.simpleMessage("Same as device"),
+    "sameDeviceDescr": MessageLookupByLibrary.simpleMessage(
+      "uses light or dark mode depending on your device settings",
     ),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Oops! Something went wrong. Try again.",

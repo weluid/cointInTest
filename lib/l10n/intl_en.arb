@@ -8,6 +8,11 @@
 "accessCameraDescr": "To upload a photo, CoinIn needs access to your gallery.",
 "toSettings": "To Settings",
 "cancel": "Cancel",
-"somethingWentWrong": "Oops! Something went wrong. Try again."
+"somethingWentWrong": "Oops! Something went wrong. Try again.",
+  "appearance": "Appearance",
+  "sameDevice": "Same as device",
+  "sameDeviceDescr": "uses light or dark mode depending on your device settings",
+  "light": "Light",
+  "dark": "Dark"
 
 }

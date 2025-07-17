@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:coinin/core/extentions/context_extentions.dart';
+import 'package:coinin/generated/assets.gen.dart';
 import 'package:coinin/presentation/main_nav_page/children/home_page/widgets/identify_tile.dart';
-import 'package:coinin/presentation/main_nav_page/children/home_page/widgets/settings_button.dart';
+import 'package:coinin/presentation/widgets/common_square_button.dart';
 import 'package:coinin/presentation/main_nav_page/children/home_page/widgets/subscription_banner.dart';
+import 'package:coinin/presentation/router/app_router.dart';
 import 'package:coinin/presentation/widgets/common_appbar.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +28,10 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
           textTitle: l10n.coinIn,
           showBackButton: false,
-          actions: SettingsButton(onTap: () {}),
+          actions: CommonSquareButton(
+            onTap: () => context.pushRoute(SettingsRoute()),
+            icon: Assets.icons.homePage.settings.svg(),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),

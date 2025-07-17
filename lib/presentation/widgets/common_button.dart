@@ -78,8 +78,8 @@ class CommonButton extends StatelessWidget {
         shadowColor: Colors.transparent,
         shape: border,
         backgroundColor: isDisabled
-            ? colors.primary.withValues(alpha: 0.38)
-            : backgroundColor ?? (_isOutlined ? Colors.transparent : colors.primary),
+            ? colors.button.withValues(alpha: 0.38)
+            : backgroundColor ?? (_isOutlined ? Colors.transparent : colors.button),
         foregroundColor: _isOutlined ? Colors.transparent : textColor,
       ),
       child: child ??

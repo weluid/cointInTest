@@ -33,7 +33,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       title: Visibility(
         visible: textTitle != null,
-        child: Text(textTitle ?? '', style: context.typography.headlineSmall),
+        child: Text(textTitle ?? '', style: context.typography.headlineLarge),
       ),
       surfaceTintColor: Colors.transparent,
       centerTitle: true,

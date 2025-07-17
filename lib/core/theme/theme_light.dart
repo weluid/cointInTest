@@ -6,6 +6,7 @@ class ThemeLight {
   static final AppColor _colors = AppColorLight();
 
   static ThemeData light = ThemeData(
+    brightness: Brightness.light,
     textTheme: _textTheme(),
     outlinedButtonTheme: _outLinedButtonTheme(),
     inputDecorationTheme: _inputDecorationTheme(),

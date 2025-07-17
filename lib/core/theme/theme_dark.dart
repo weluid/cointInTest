@@ -6,6 +6,7 @@ class ThemeDark {
   static final AppColor _colors = AppColorDark();
 
   static ThemeData dark = ThemeData(
+    brightness: Brightness.dark,
     textTheme: _textTheme(),
     outlinedButtonTheme: _outLinedButtonTheme(),
     inputDecorationTheme: _inputDecorationTheme(),

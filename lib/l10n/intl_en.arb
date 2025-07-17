@@ -2,5 +2,12 @@
 "freePremium":"Free Premium Available",
 "tapToClaim":"Tap to claim",
 "coinIn":"CoinIn",
-"identifyCoin":"Identify Coin"
+"identifyCoin":"Identify Coin",
+"permissionDenied": "Permission was denied.",
+"accessGallery": "Please allow access to the gallery.",
+"accessCameraDescr": "To upload a photo, CoinIn needs access to your gallery.",
+"toSettings": "To Settings",
+"cancel": "Cancel",
+"somethingWentWrong": "Oops! Something went wrong. Try again."
+
 }

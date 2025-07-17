@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:coinin/core/extentions/context_extentions.dart';
 import 'package:coinin/generated/assets.gen.dart';
 import 'package:coinin/presentation/router/app_router.dart';
+import 'package:coinin/presentation/widgets/commpn_botton_nav_bar/common_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -11,12 +12,7 @@ class MainNavPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    final items = <({SvgGenImage icon})>[
-      (icon: Assets.icons.bottomBar.home),
-      (icon: Assets.icons.bottomBar.search),
-      (icon: Assets.icons.bottomBar.history),
-      (icon: Assets.icons.bottomBar.collection),
-    ];
+
     return AutoTabsScaffold(
       routes: const [
         HomeRoute(),
@@ -47,32 +43,8 @@ class MainNavPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBuilder: (_, tabsRouter) {
-        final theme = Theme.of(context).bottomNavigationBarTheme;
-        return BottomAppBar(
-          color: colors.button,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: List<Widget>.generate(items.length, (index) {
-              final elem = items[index];
-              final bool isSelected = tabsRouter.activeIndex == index;
-              final color = isSelected
-                  ? theme.selectedItemColor
-                  : theme.unselectedItemColor;
-
-              return Expanded(
-                child: IconButton(
-                  onPressed: () => tabsRouter.setActiveIndex(index),
-                  icon: elem.icon.svg(
-                    colorFilter: color != null
-                        ? ColorFilter.mode(color, BlendMode.srcIn)
-                        : null,
-                  ),
-                ),
-              );
-            }),
-          ),
-        );
+      bottomNavigationBuilder: (context, tabsRouter) {
+        return CommonBottomNavBar(tabsRouter: tabsRouter);
       },
     );
   }

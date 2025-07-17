@@ -84,6 +84,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Permission was denied.`
+  String get permissionDenied {
+    return Intl.message(
+      'Permission was denied.',
+      name: 'permissionDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please allow access to the gallery.`
+  String get accessGallery {
+    return Intl.message(
+      'Please allow access to the gallery.',
+      name: 'accessGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To upload a photo, CoinIn needs access to your gallery.`
+  String get accessCameraDescr {
+    return Intl.message(
+      'To upload a photo, CoinIn needs access to your gallery.',
+      name: 'accessCameraDescr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To Settings`
+  String get toSettings {
+    return Intl.message('To Settings', name: 'toSettings', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Oops! Something went wrong. Try again.`
+  String get somethingWentWrong {
+    return Intl.message(
+      'Oops! Something went wrong. Try again.',
+      name: 'somethingWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

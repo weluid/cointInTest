@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:coinin/presentation/main_nav_page/children/collection_page/collection_page.dart';
 import 'package:coinin/presentation/main_nav_page/children/home_page/home_page.dart';
-import 'package:coinin/presentation/main_nav_page/children/profile_page/profile_page.dart';
+import 'package:coinin/presentation/main_nav_page/children/history_page/history_page.dart';
 import 'package:coinin/presentation/main_nav_page/children/search_page/search_page.dart';
 import 'package:coinin/presentation/main_nav_page/main_nav_page.dart';
 import 'package:coinin/presentation/splash_page/splash_page.dart';

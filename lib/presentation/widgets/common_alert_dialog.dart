@@ -55,14 +55,14 @@ class CommonAlertDialog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
-                child: CommonButton.outLine(
+                child: CommonButton.primary(
                   onPressed: secondaryButtonTap.call,
                   label: secondaryButtonText,
                 ),
               ),
               const SizedBox(width: 10),
               Expanded(
-                child: CommonButton.primary(
+                child: CommonButton.outLine(
                   onPressed: primaryButtonTap.call,
                   label: primaryButtonTitle,
                   textAlign: TextAlign.center,

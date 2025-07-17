@@ -22,11 +22,25 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "accessCameraDescr": MessageLookupByLibrary.simpleMessage(
+      "To upload a photo, CoinIn needs access to your gallery.",
+    ),
+    "accessGallery": MessageLookupByLibrary.simpleMessage(
+      "Please allow access to the gallery.",
+    ),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "coinIn": MessageLookupByLibrary.simpleMessage("CoinIn"),
     "freePremium": MessageLookupByLibrary.simpleMessage(
       "Free Premium Available",
     ),
     "identifyCoin": MessageLookupByLibrary.simpleMessage("Identify Coin"),
+    "permissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Permission was denied.",
+    ),
+    "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
+      "Oops! Something went wrong. Try again.",
+    ),
     "tapToClaim": MessageLookupByLibrary.simpleMessage("Tap to claim"),
+    "toSettings": MessageLookupByLibrary.simpleMessage("To Settings"),
   };
 }

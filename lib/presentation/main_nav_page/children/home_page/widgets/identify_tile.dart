@@ -1,12 +1,23 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:coinin/core/extentions/context_extentions.dart';
 import 'package:coinin/generated/assets.gen.dart';
 import 'package:coinin/presentation/widgets/common_button.dart';
+import 'package:coinin/presentation/widgets/common_flush.dart';
+import 'package:coinin/services/permission_service/gallery_permission_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
-class IdentifyTile extends StatelessWidget {
+class IdentifyTile extends StatefulWidget {
   const IdentifyTile({super.key});
+
+  @override
+  State<IdentifyTile> createState() => _IdentifyTileState();
+}
+
+class _IdentifyTileState extends State<IdentifyTile> {
+  final ValueNotifier<File?> _imageFile = ValueNotifier(null);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +53,24 @@ class IdentifyTile extends StatelessWidget {
             left: 77,
             right: 77,
             child: CommonButton.primary(
-              onPressed: () {},
+              onPressed: () async {
+                await GalleryPermissionHandler()
+                    .handlePermission(context: context)
+                    .then((canProceed) async {
+                      if (canProceed) {
+                        await _pickImageFromGallery().then((image) async {
+                          if (image != null) {
+                            _imageFile.value = image;
+                          } else {
+                            FlushBarService().showMessage(
+                              message: l10n.somethingWentWrong,
+                              context: context,
+                            );
+                          }
+                        });
+                      }
+                    });
+              },
               label: "",
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -65,21 +93,44 @@ class IdentifyTile extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            top: 0,
-            child: SizedBox(
-              height: coinSize,
-              width: coinSize,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(coinSize),
+          ValueListenableBuilder<File?>(
+            valueListenable: _imageFile,
+            builder: (context, value, child) {
+              return Positioned(
+                top: 0,
+                child: SizedBox(
+                  height: coinSize,
+                  width: coinSize,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(coinSize),
+                    ),
+                    child: value == null
+                        ? Assets.images.homePage.mainCoin.image()
+                        : ClipRRect(
+                            borderRadius: BorderRadius.circular(coinSize),
+                            child: Image.file(value, fit: BoxFit.cover),
+                          ),
+                  ),
                 ),
-                child: Assets.images.homePage.mainCoin.image(),
-              ),
-            ),
+              );
+            },
           ),
         ],
       ),
     );
+  }
+
+  Future<File?> _pickImageFromGallery() async {
+    final pickedImage = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 100,
+    );
+
+    if (pickedImage != null) {
+      return File(pickedImage.path);
+    } else {
+      return null;
+    }
   }
 }

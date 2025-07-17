@@ -15,12 +15,4 @@ class LocalStorage {
   void setToken(String token) => _prefs.setString(Constants.accessToken, token);
 
   void removeToken() => _prefs.remove(Constants.accessToken);
-
-  String? getUser() => _prefs.getString(Constants.currentUser);
-
-  void setUser(String user) => _prefs.setString(Constants.currentUser, user);
-
-  void removeUser() => _prefs.remove(Constants.currentUser);
-
-
 }

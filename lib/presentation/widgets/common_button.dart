@@ -12,10 +12,10 @@ class CommonButton extends StatelessWidget {
     this.customSize,
     this.textAlign,
     this.border,
-  })  : _isOutlined = false,
-        textColor = null,
-        backgroundColor = null,
-        borderColor = null;
+  }) : _isOutlined = false,
+       textColor = null,
+       backgroundColor = null,
+       borderColor = null;
 
   const CommonButton.outLine({
     super.key,
@@ -28,9 +28,9 @@ class CommonButton extends StatelessWidget {
     this.customSize,
     this.textAlign,
     this.border,
-  })  : _isOutlined = true,
-        textColor = null,
-        backgroundColor = null;
+  }) : _isOutlined = true,
+       textColor = null,
+       backgroundColor = null;
 
   const CommonButton.custom({
     super.key,
@@ -72,20 +72,22 @@ class CommonButton extends StatelessWidget {
         side: borderColor != null
             ? BorderSide(color: borderColor!)
             : _isOutlined
-                ? BorderSide(color: colors.primary)
-                : null,
+            ? BorderSide(color: colors.primary)
+            : null,
         padding: EdgeInsets.zero,
         shadowColor: Colors.transparent,
         shape: border,
         backgroundColor: isDisabled
             ? colors.button.withValues(alpha: 0.38)
-            : backgroundColor ?? (_isOutlined ? Colors.transparent : colors.button),
+            : backgroundColor ??
+                  (_isOutlined ? Colors.transparent : colors.button),
         foregroundColor: _isOutlined ? Colors.transparent : textColor,
       ),
-      child: child ??
+      child:
+          child ??
           Text(
             label,
-            style: context.typography.headlineSmall?.copyWith(
+            style: context.typography.headlineMedium?.copyWith(
               color: _isOutlined ? colors.primary : Colors.white,
             ),
             textAlign: textAlign,

@@ -3,7 +3,6 @@ import 'package:coinin/core/theme/theme_light.dart';
 import 'package:coinin/di/storage_injector.dart';
 import 'package:coinin/generated/l10n.dart';
 import 'package:coinin/presentation/main_nav_page/children/home_page/bloc/home_page_cubit.dart';
-import 'package:coinin/presentation/main_nav_page/children/profile_page/bloc/profile_cubit.dart';
 import 'package:coinin/presentation/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,7 +35,6 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => HomePageCubit()),
-        BlocProvider(create: (_) => ProfileCubit()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

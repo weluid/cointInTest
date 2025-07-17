@@ -11,7 +11,7 @@
 "somethingWentWrong": "Oops! Something went wrong. Try again.",
   "appearance": "Appearance",
   "sameDevice": "Same as device",
-  "sameDeviceDescr": "uses light or dark mode depending on your device settings",
+  "sameDeviceDescr": "uses light or dark mode depending\non your device settings",
   "light": "Light",
   "dark": "Dark"
 

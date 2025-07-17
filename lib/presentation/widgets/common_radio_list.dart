@@ -146,13 +146,10 @@ class _TextView extends StatelessWidget {
         children: [
           Text(item.text, style: context.typography.headlineMedium),
           if (item.description != null)
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .7,
-              child: Text(
-                item.description!,
-                style: context.typography.titleMedium?.copyWith(
-                  color: context.colors.inactiveColor,
-                ),
+            Text(
+              item.description!,
+              style: context.typography.titleMedium?.copyWith(
+                color: context.colors.inactiveColor,
               ),
             ),
         ],

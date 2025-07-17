@@ -150,10 +150,10 @@ class S {
     );
   }
 
-  /// `uses light or dark mode depending on your device settings`
+  /// `uses light or dark mode depending\non your device settings`
   String get sameDeviceDescr {
     return Intl.message(
-      'uses light or dark mode depending on your device settings',
+      'uses light or dark mode depending\non your device settings',
       name: 'sameDeviceDescr',
       desc: '',
       args: [],

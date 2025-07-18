@@ -32,11 +32,12 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final l10n = context.l10n;
     return DecoratedBox(
       decoration: BoxDecoration(gradient: context.commonBackgroundGradient),
       child: Scaffold(
         appBar: CommonAppBar(
-          textTitle: "Settings",
+          textTitle: l10n.settings,
           showBackButton: false,
           actions: CommonSquareButton(
             onTap: () => context.maybePop(),
@@ -82,16 +83,24 @@ class _SettingsPageState extends State<SettingsPage> {
   String _getThemeValue(ThemeType? type, BuildContext context) {
     final l10n = context.l10n;
 
-    final themeValue = themeType?.name ?? getIt<LocalStorage>().getTheme;
-    switch (themeValue) {
-      case "dark":
+    final themeType = type ?? _getStoredThemeType();
+
+    switch (themeType) {
+      case ThemeType.dark:
         return l10n.dark;
-      case "light":
+      case ThemeType.light:
         return l10n.light;
-      case "system":
-        return l10n.sameDevice;
-      default:
+      case ThemeType.system:
         return l10n.sameDevice;
     }
+  }
+
+  ThemeType _getStoredThemeType() {
+    final storedTheme = getIt<LocalStorage>().getTheme;
+
+    return ThemeType.values.firstWhere(
+      (e) => e.name == storedTheme,
+      orElse: () => ThemeType.system,
+    );
   }
 }

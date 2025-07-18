@@ -44,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sameDeviceDescr": MessageLookupByLibrary.simpleMessage(
       "uses light or dark mode depending\non your device settings",
     ),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Oops! Something went wrong. Try again.",
     ),

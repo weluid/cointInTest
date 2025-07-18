@@ -2,7 +2,7 @@ import 'package:coinin/core/extentions/context_extentions.dart';
 import 'package:coinin/data/database/local_storage.dart';
 import 'package:coinin/di/storage_injector.dart';
 import 'package:coinin/domain/params/radio_params.dart';
-import 'package:coinin/presentation/widgets/common_radio_list.dart';
+import 'package:coinin/presentation/widgets/common_radio_list/common_radio_list.dart';
 import 'package:coinin/services/theme_service/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';

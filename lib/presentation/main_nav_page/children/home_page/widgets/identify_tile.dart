@@ -104,13 +104,34 @@ class _IdentifyTileState extends State<IdentifyTile> {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(coinSize),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.35),
+                          blurRadius: 12,
+                          offset: Offset(0, 8),
+                        ),
+                      ],
                     ),
-                    child: value == null
-                        ? Assets.images.homePage.mainCoin.image()
-                        : ClipRRect(
-                            borderRadius: BorderRadius.circular(coinSize),
-                            child: Image.file(value, fit: BoxFit.cover),
-                          ),
+                    child: AnimatedSwitcher(
+                      duration: Duration(milliseconds: 500),
+                      child: value == null
+                          ? Assets.images.homePage.mainCoin.image(
+                              key: const ValueKey('default_image'),
+                              fit: BoxFit.cover,
+                            )
+                          : SizedBox(
+                              height: coinSize,
+                              width: coinSize,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(coinSize),
+                                child: Image.file(
+                                  value,
+                                  key: ValueKey(value.path),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                    ),
                   ),
                 ),
               );

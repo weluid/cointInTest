@@ -14,6 +14,10 @@
 "sameDeviceDescr": "uses light or dark mode depending\non your device settings",
 "light": "Light",
 "dark": "Dark",
-"settings": "Settings"
+"settings": "Settings",
+"home": "Home",
+"search": "Search",
+"history": "History",
+"collection": "Collection"
 
 }

@@ -12,29 +12,30 @@ class CommonBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    final l10n = context.l10n;
     final items = <({BottomBarParams params})>[
       (
         params: BottomBarParams(
           icon: Assets.icons.bottomBar.home,
-          title: 'Home',
+          title: l10n.home,
         ),
       ),
       (
         params: BottomBarParams(
           icon: Assets.icons.bottomBar.search,
-          title: 'Search',
+          title: l10n.search,
         ),
       ),
       (
         params: BottomBarParams(
           icon: Assets.icons.bottomBar.history,
-          title: 'History',
+          title: l10n.history,
         ),
       ),
       (
         params: BottomBarParams(
           icon: Assets.icons.bottomBar.collection,
-          title: 'Collection',
+          title: l10n.collection,
         ),
       ),
     ];

@@ -31,10 +31,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "coinIn": MessageLookupByLibrary.simpleMessage("CoinIn"),
+    "collection": MessageLookupByLibrary.simpleMessage("Collection"),
     "dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "freePremium": MessageLookupByLibrary.simpleMessage(
       "Free Premium Available",
     ),
+    "history": MessageLookupByLibrary.simpleMessage("History"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "identifyCoin": MessageLookupByLibrary.simpleMessage("Identify Coin"),
     "light": MessageLookupByLibrary.simpleMessage("Light"),
     "permissionDenied": MessageLookupByLibrary.simpleMessage(
@@ -44,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sameDeviceDescr": MessageLookupByLibrary.simpleMessage(
       "uses light or dark mode depending\non your device settings",
     ),
+    "search": MessageLookupByLibrary.simpleMessage("Search"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Oops! Something went wrong. Try again.",

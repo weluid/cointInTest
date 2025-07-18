@@ -41,66 +41,77 @@ class CommonBottomNavBar extends StatelessWidget {
     ];
     final theme = Theme.of(context).bottomNavigationBarTheme;
 
-    return ClipRRect(
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(16),
-        topRight: Radius.circular(16),
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.16),
+            blurRadius: 80,
+            offset: const Offset(0, 24),
+          ),
+        ],
       ),
-      child: Theme(
-        data: Theme.of(context).copyWith(
-          splashFactory: NoSplash.splashFactory,
-          highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(16),
+          topRight: Radius.circular(16),
         ),
-        child: BottomNavigationBar(
-          backgroundColor: colors.button,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: tabsRouter.activeIndex >= 2
-              ? tabsRouter.activeIndex + 1
-              : tabsRouter.activeIndex,
-          onTap: (index) {
-            if (index == 2) return; // Пропуск FAB
-            final realIndex = index > 2 ? index - 1 : index;
-            tabsRouter.setActiveIndex(realIndex);
-          },
+        child: Theme(
+          data: Theme.of(context).copyWith(
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+          ),
+          child: BottomNavigationBar(
+            backgroundColor: colors.button,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: tabsRouter.activeIndex >= 2
+                ? tabsRouter.activeIndex + 1
+                : tabsRouter.activeIndex,
+            onTap: (index) {
+              if (index == 2) return; // Пропуск FAB
+              final realIndex = index > 2 ? index - 1 : index;
+              tabsRouter.setActiveIndex(realIndex);
+            },
 
-          selectedLabelStyle: context.typography.bodyMedium?.copyWith(
-            color: theme.unselectedItemColor,
-          ),
-          unselectedLabelStyle: context.typography.bodyMedium?.copyWith(
-            color: theme.selectedItemColor,
-          ),
-          items: List<BottomNavigationBarItem>.generate(items.length + 1, (
-            index,
-          ) {
-            if (index == 2) {
-              // space under FAB
+            selectedLabelStyle: context.typography.bodyMedium?.copyWith(
+              color: theme.unselectedItemColor,
+            ),
+            unselectedLabelStyle: context.typography.bodyMedium?.copyWith(
+              color: theme.selectedItemColor,
+            ),
+            items: List<BottomNavigationBarItem>.generate(items.length + 1, (
+              index,
+            ) {
+              if (index == 2) {
+                // space under FAB
+                return BottomNavigationBarItem(
+                  icon: SizedBox(width: 80),
+                  label: '',
+                );
+              }
+
+              final realIndex = index > 1 ? index - 1 : index; // Index offset
+              final elem = items[realIndex];
+              final bool isSelected = tabsRouter.activeIndex == realIndex;
+              final color = isSelected
+                  ? theme.selectedItemColor
+                  : theme.unselectedItemColor;
               return BottomNavigationBarItem(
-                icon: SizedBox(width: 80),
-                label: '',
+                icon: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    elem.params.icon.svg(
+                      colorFilter: color != null
+                          ? ColorFilter.mode(color, BlendMode.srcIn)
+                          : null,
+                    ),
+                  ],
+                ),
+                label: elem.params.title,
               );
-            }
-
-            final realIndex = index > 1 ? index - 1 : index; // Index offset
-            final elem = items[realIndex];
-            final bool isSelected = tabsRouter.activeIndex == realIndex;
-            final color = isSelected
-                ? theme.selectedItemColor
-                : theme.unselectedItemColor;
-            return BottomNavigationBarItem(
-              icon: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  elem.params.icon.svg(
-                    colorFilter: color != null
-                        ? ColorFilter.mode(color, BlendMode.srcIn)
-                        : null,
-                  ),
-                ],
-              ),
-              label: elem.params.title,
-            );
-          }),
+            }),
+          ),
         ),
       ),
     );
